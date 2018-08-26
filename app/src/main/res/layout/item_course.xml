@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="course"
+            type="com.example.android.culearn.model.Course" />
+
+        <variable
+            name="presenter"
+            type="com.example.android.culearn.ui.course.CourseContract.Presenter" />
+
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:onClick="@{()->presenter.onCourseClicked(course)}">
+
+        <TextView
+            android:id="@+id/courseCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{course.courseCode}"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@id/courseName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="STAT 3502" />
+
+        <TextView
+            android:id="@+id/courseName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{course.courseName}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/courseCode"
+            tools:text="Statistics and Probability" />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>
